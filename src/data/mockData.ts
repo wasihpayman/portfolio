@@ -5,7 +5,7 @@ export const mockProfile: Profile = {
   name: 'Abdul Wasih Payman',
   title: 'Full Stack Developer',
   bio: 'Passionate developer with +2 years of experience building scalable web applications. I love creating beautiful, functional user experiences and robust backend systems.',
-  image: 'photo.jpg',
+  image: '/portfolio/photo.jpg',
   location: 'Mazar-e-sharif, Afghanistan',
   email: 'paymanwasih240@gmail.com',
   phone: '+93 798 338 570'

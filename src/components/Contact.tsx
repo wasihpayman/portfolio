@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Mail, Phone, MapPin, Send, Github, Linkedin } from 'lucide-react';
 import { Profile, SocialLink } from '../types/portfolio';
-
+import emailjs from 'emailjs-com';
 interface ContactProps {
   profile: Profile;
   socialLinks: SocialLink[];
@@ -15,13 +15,26 @@ const Contact: React.FC<ContactProps> = ({ profile, socialLinks }) => {
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    // Handle form submission here
-    console.log('Form submitted:', formData);
-    // Reset form
-    setFormData({ name: '', email: '', subject: '', message: '' });
-  };
+ 
+
+const handleSubmit = (e: React.FormEvent) => {
+  e.preventDefault();
+
+  emailjs.send(
+    'service_rnvcd7y',     
+    'template_kd56qeg',     
+    formData,               
+    '-WUHpBIwWKNvCv7Qk'       
+  ).then(
+    (result) => {
+      console.log('Email sent!', result.text);
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    },
+    (error) => {
+      console.error('Email error:', error.text);
+    }
+  );
+};
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
