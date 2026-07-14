@@ -4,13 +4,14 @@ import constructionImage from '../portfolio/constraction (1).png';
 import sarafiImage from '../portfolio/gigs.png';
 import goldImage from '../portfolio/main.png';
 import mrnImage from '../portfolio/persona.png';
+import photoimage from '../portfolio/photo.jpg';
 
 export const mockProfile: Profile = {
   id: '1',
   name: 'Abdulwasih Payman',
   title: 'Full Stack Developer',
   bio: 'Full Stack Developer specializing in Laravel and React. I build scalable web applications, management systems, REST APIs, and database-driven solutions for real-world business needs.',
-  image: 'src/portfolio/photo.jpeg',
+  image: photoimage,
   location: 'Mazar-e-Sharif, Afghanistan',
   email: 'paymanwasih240@gmail.com',
   phone: '+93 798 338 570'
