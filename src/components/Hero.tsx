@@ -365,8 +365,6 @@ rounded-full
 "
 />
 
-
-
 <img
 
 src={profile.image}

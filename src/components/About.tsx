@@ -1,6 +1,7 @@
 import React from 'react';
 import { Code2, Layers, Users, Database } from 'lucide-react';
 import { Profile } from '../types/portfolio';
+import aboutimage from '../portfolio/about.jpeg';
 
 interface AboutProps {
   profile: Profile;
@@ -80,7 +81,7 @@ const About: React.FC<AboutProps> = ({ profile }) => {
 
             <img
 
-              src="src/portfolio/about.jpeg"
+              src={aboutimage}
 
               alt={profile.name}
 
