@@ -1,151 +1,143 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+
 import {
- Mail,
- Phone,
- MapPin,
- Send,
- Github,
- Linkedin,
- MessageCircle
+  Mail,
+  MapPin,
+  Send,
+  Github,
+  Linkedin,
+  MessageCircle
 } from 'lucide-react';
 
-import {Profile, SocialLink} from '../types/portfolio';
+import { Profile, SocialLink } from '../types/portfolio';
 
 import emailjs from 'emailjs-com';
 
 
 interface ContactProps {
- profile:Profile;
- socialLinks:SocialLink[];
+  profile: Profile;
+  socialLinks: SocialLink[];
 }
 
 
-
-const Contact:React.FC<ContactProps> = ({
- profile,
- socialLinks
-})=>{
-
-
-const [formData,setFormData]=useState({
-
-name:'',
-email:'',
-subject:'',
-message:''
-
-});
+const Contact: React.FC<ContactProps> = ({
+  profile,
+  socialLinks
+}) => {
 
 
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    subject: '',
+    message: ''
+  });
 
-const handleChange=(
-e:React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-)=>{
 
-setFormData({
+  const [statusMessage, setStatusMessage] = useState('');
 
-...formData,
+  const [isSending, setIsSending] = useState(false);
 
-[e.target.name]:e.target.value
 
-});
 
-};
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
 
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+    });
+
+  };
 
 
 
 
-const handleSubmit=(e:React.FormEvent)=>{
+  const handleSubmit = (e: React.FormEvent) => {
 
-e.preventDefault();
+    e.preventDefault();
 
-
-emailjs.send(
-'service_rnvcd7y',
-'template_kd56qeg',
-formData,
-'-WUHpBIwWKNvCv7Qk'
-)
-.then(()=>{
-
-setFormData({
-name:'',
-email:'',
-subject:'',
-message:''
-});
-
-});
-
-
-};
+    setIsSending(true);
+    setStatusMessage('');
 
 
 
+    emailjs.send(
+      'service_rnvcd7y',
+      'template_kd56qeg',
+      formData,
+      '-WUHpBIwWKNvCv7Qk'
+    )
+
+    .then(() => {
 
 
-return (
+      setStatusMessage(
+        "Message sent successfully! Thank you for contacting me. I will review your message and get back to you as soon as possible. For urgent inquiries, feel free to contact me on WhatsApp."
+      );
+
+
+      setFormData({
+        name:'',
+        email:'',
+        subject:'',
+        message:''
+      });
+
+
+      setIsSending(false);
+
+
+    })
+
+
+    .catch(() => {
+
+
+      setStatusMessage(
+        "Something went wrong. Please try again or contact me directly through WhatsApp."
+      );
+
+
+      setIsSending(false);
+
+
+    });
+
+
+  };
+
+
+
+
+  return (
 
 <section
 id="contact"
-className="
-py-24
-bg-[#020617]
-"
+className="py-24 bg-[#020617]"
 >
 
 
-<div
-className="
-max-w-6xl
-mx-auto
-px-6
-"
->
+<div className="max-w-6xl mx-auto px-6">
 
 
-
-<div
-className="
-mb-14
-"
->
+<div className="mb-14">
 
 
-<p
-className="
-text-blue-400
-uppercase
-tracking-widest
-text-sm
-"
->
+<p className="text-blue-400 uppercase tracking-widest text-sm">
 Contact
 </p>
 
 
-<h2
-className="
-text-4xl
-md:text-5xl
-font-bold
-text-white
-mt-3
-"
->
+
+<h2 className="text-4xl md:text-5xl font-bold text-white mt-3">
 Let's Build Something Together
 </h2>
 
 
-<p
-className="
-text-gray-400
-mt-5
-max-w-2xl
-text-lg
-"
->
+
+<p className="text-gray-400 mt-5 max-w-2xl text-lg">
 Have a project, business idea, or remote opportunity?
 Feel free to contact me.
 </p>
@@ -156,47 +148,21 @@ Feel free to contact me.
 
 
 
-
-<div
-className="
-grid
-lg:grid-cols-2
-gap-12
-"
->
+<div className="grid lg:grid-cols-2 gap-12">
 
 
 
-
-{/* Information */}
-
-
-<div
-className="
-space-y-8
-"
->
+<div className="space-y-8">
 
 
 <div>
 
-<h3
-className="
-text-2xl
-text-white
-font-semibold
-"
->
+<h3 className="text-2xl text-white font-semibold">
 Get in touch
 </h3>
 
 
-<p
-className="
-text-gray-400
-mt-3
-"
->
+<p className="text-gray-400 mt-3">
 I work on Laravel, React, REST API,
 and business management applications.
 </p>
@@ -206,29 +172,18 @@ and business management applications.
 
 
 
-
-
-<div
-className="
-space-y-5
-"
->
-
+<div className="space-y-5">
 
 
 <div className="flex gap-4 items-center">
 
-<div
-className="
-p-3
-rounded-lg
-bg-white/5
-border
-border-white/10
-"
->
+
+<div className="p-3 rounded-lg bg-white/5 border border-white/10">
+
 <Mail className="text-blue-400"/>
+
 </div>
+
 
 <div>
 
@@ -240,7 +195,9 @@ Email
 {profile.email}
 </p>
 
+
 </div>
+
 
 </div>
 
@@ -250,16 +207,11 @@ Email
 
 <div className="flex gap-4 items-center">
 
-<div
-className="
-p-3
-rounded-lg
-bg-white/5
-border
-border-white/10
-"
->
+
+<div className="p-3 rounded-lg bg-white/5 border border-white/10">
+
 <MessageCircle className="text-green-400"/>
+
 </div>
 
 
@@ -269,33 +221,29 @@ border-white/10
 WhatsApp
 </p>
 
+
 <a
 href="https://wa.me/93798338570"
-className="text-gray-400 hover:text-white"
+target="_blank"
+rel="noreferrer"
+className="text-gray-400 hover:text-green-400"
 >
+
 +93 798 338 570
+
 </a>
 
-</div>
 
 </div>
 
 
-
-
-
+</div>
 <div className="flex gap-4 items-center">
 
-<div
-className="
-p-3
-rounded-lg
-bg-white/5
-border
-border-white/10
-"
->
+<div className="p-3 rounded-lg bg-white/5 border border-white/10">
+
 <MapPin className="text-blue-400"/>
+
 </div>
 
 
@@ -305,20 +253,20 @@ border-white/10
 Location
 </p>
 
+
 <p className="text-gray-400">
 {profile.location}
 </p>
 
-</div>
 
 </div>
 
 
-
 </div>
 
 
 
+</div>
 
 
 
@@ -329,17 +277,20 @@ Location
 <a
 href="https://github.com/wasihpayman"
 target="_blank"
+rel="noreferrer"
 className="
-p-3
-bg-white/5
-border
-border-white/10
-rounded-lg
-text-gray-400
+p-3 
+bg-white/5 
+border 
+border-white/10 
+rounded-lg 
+text-gray-400 
 hover:text-white
 "
 >
+
 <Github/>
+
 </a>
 
 
@@ -347,17 +298,20 @@ hover:text-white
 <a
 href="https://www.linkedin.com/in/wasih-payman-0b9b02262/"
 target="_blank"
+rel="noreferrer"
 className="
-p-3
-bg-white/5
-border
-border-white/10
-rounded-lg
-text-gray-400
+p-3 
+bg-white/5 
+border 
+border-white/10 
+rounded-lg 
+text-gray-400 
 hover:text-white
 "
 >
+
 <Linkedin/>
+
 </a>
 
 
@@ -371,11 +325,7 @@ hover:text-white
 
 
 
-
-
-
 {/* Form */}
-
 
 <div
 className="
@@ -396,6 +346,8 @@ className="space-y-5"
 
 
 <input
+
+required
 
 name="name"
 
@@ -422,7 +374,13 @@ focus:border-blue-400
 
 
 
+
+
 <input
+
+required
+
+type="email"
 
 name="email"
 
@@ -449,7 +407,11 @@ focus:border-blue-400
 
 
 
+
+
 <input
+
+required
 
 name="subject"
 
@@ -477,7 +439,10 @@ focus:border-blue-400
 
 
 
+
 <textarea
+
+required
 
 name="message"
 
@@ -510,10 +475,15 @@ focus:border-blue-400
 
 <button
 
+type="submit"
+
+disabled={isSending}
+
 className="
 w-full
 bg-blue-600
 hover:bg-blue-500
+disabled:opacity-50
 text-white
 py-3
 rounded-lg
@@ -526,15 +496,84 @@ transition
 
 >
 
+
 <Send size={20}/>
 
-Send Message
+
+{
+isSending 
+? "Sending..." 
+: "Send Message"
+}
+
 
 </button>
 
 
 
 </form>
+
+
+
+
+
+{
+statusMessage && (
+
+<div
+className="
+mt-6
+p-4
+rounded-lg
+bg-green-600/20
+border
+border-green-400/30
+text-green-200
+text-sm
+leading-relaxed
+"
+>
+
+
+<p>
+{statusMessage}
+</p>
+
+
+
+<div className="mt-3">
+
+For urgent inquiries:
+
+
+<a
+href="https://wa.me/93798338570"
+target="_blank"
+rel="noreferrer"
+className="
+ml-2
+text-green-400
+font-semibold
+hover:text-green-300
+"
+>
+
+Contact via WhatsApp
+
+</a>
+
+
+</div>
+
+
+
+</div>
+
+)
+
+}
+
+
 
 
 </div>
@@ -552,10 +591,10 @@ Send Message
 </section>
 
 
-);
-
+  );
 
 };
+
 
 
 export default Contact;
