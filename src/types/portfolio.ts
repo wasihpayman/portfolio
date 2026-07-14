@@ -43,5 +43,5 @@ export interface Skill {
   id: string;
   name: string;
   percentage: number;
-  category: 'frontend' | 'backend' | 'tools' | 'other'| 'AI';
+  category: 'frontend' | 'backend' | 'tools' | 'other'|'database'| 'AI';
 }

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Github } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -7,12 +7,14 @@ const Navbar: React.FC = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50);
+      setIsScrolled(window.scrollY > 20);
     };
 
     window.addEventListener('scroll', handleScroll);
+
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
 
   const navItems = [
     { name: 'Home', href: '#home' },
@@ -23,76 +25,202 @@ const Navbar: React.FC = () => {
     { name: 'Contact', href: '#contact' }
   ];
 
+
   const scrollToSection = (href: string) => {
     const element = document.querySelector(href);
+
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({
+        behavior: 'smooth'
+      });
     }
+
     setIsMobileMenuOpen(false);
   };
 
+
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+      className={`
+      fixed top-0 left-0 right-0 z-50 transition-all duration-300
+      ${
         isScrolled
-          ? 'bg-gray-900/95 backdrop-blur-sm shadow-lg'
-          : 'bg-transparent'
-      }`}
+        ? 'bg-[#0b0f19]/90 backdrop-blur-xl border-b border-white/10 shadow-lg'
+        : 'bg-transparent'
+      }
+      `}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <h1 className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-              AP
-            </h1>
-          </div>
+
+      <div className="max-w-6xl mx-auto px-6">
+
+        <div className="h-20 flex items-center justify-between">
+
+
+          {/* Developer Logo */}
+
+          <button
+            onClick={() => scrollToSection('#home')}
+            className="group flex items-center gap-2"
+          >
+
+            <div className="
+              w-10 h-10 
+              rounded-lg
+              border border-white/10
+              bg-white/5
+              flex items-center justify-center
+              group-hover:border-blue-400
+              transition
+            ">
+              <span className="text-blue-400 font-bold text-lg">
+                AP
+              </span>
+            </div>
+
+
+            <span className="
+              hidden sm:block
+              text-white
+              font-semibold
+              tracking-wide
+            ">
+              Abdulwasih Payman
+            </span>
+
+          </button>
+
+
 
           {/* Desktop Menu */}
-          <div className="hidden md:block">
-            <div className="ml-10 flex items-baseline space-x-4">
-              {navItems.map((item) => (
+
+          <div className="hidden md:flex items-center gap-1">
+
+            {
+              navItems.map((item)=>(
                 <button
                   key={item.name}
-                  onClick={() => scrollToSection(item.href)}
-                  className="text-gray-300 hover:text-purple-400 px-3 py-2 text-sm font-medium transition-colors duration-200"
+                  onClick={()=>scrollToSection(item.href)}
+                  className="
+                    px-4 py-2
+                    text-sm
+                    text-gray-400
+                    rounded-lg
+                    hover:text-white
+                    hover:bg-white/5
+                    transition-all
+                  "
                 >
                   {item.name}
                 </button>
-              ))}
-            </div>
+              ))
+            }
+
+
+            <a
+              href="https://github.com/wasihpayman"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="
+                ml-3
+                flex items-center gap-2
+                px-4 py-2
+                rounded-lg
+                border border-white/10
+                text-gray-300
+                hover:text-white
+                hover:border-blue-400
+                transition
+                text-sm
+              "
+            >
+              <Github size={16}/>
+              GitHub
+            </a>
+
+
           </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="text-gray-300 hover:text-purple-400 transition-colors duration-200"
-            >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
-          </div>
+
+
+          {/* Mobile Button */}
+
+          <button
+            className="
+              md:hidden
+              text-gray-300
+              hover:text-white
+            "
+            onClick={()=>setIsMobileMenuOpen(!isMobileMenuOpen)}
+          >
+
+            {
+              isMobileMenuOpen
+              ?
+              <X size={26}/>
+              :
+              <Menu size={26}/>
+            }
+
+          </button>
+
+
         </div>
+
+
       </div>
 
+
+
+
       {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="md:hidden bg-gray-900/95 backdrop-blur-sm">
-          <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-            {navItems.map((item) => (
-              <button
-                key={item.name}
-                onClick={() => scrollToSection(item.href)}
-                className="text-gray-300 hover:text-purple-400 block px-3 py-2 text-base font-medium transition-colors duration-200 w-full text-left"
-              >
-                {item.name}
-              </button>
-            ))}
+
+      {
+        isMobileMenuOpen && (
+
+          <div
+            className="
+            md:hidden
+            bg-[#0b0f19]
+            border-t border-white/10
+            "
+          >
+
+            <div className="px-6 py-5 space-y-2">
+
+              {
+                navItems.map((item)=>(
+                  <button
+                    key={item.name}
+                    onClick={()=>scrollToSection(item.href)}
+                    className="
+                    block
+                    w-full
+                    text-left
+                    px-4 py-3
+                    rounded-lg
+                    text-gray-400
+                    hover:text-white
+                    hover:bg-white/5
+                    transition
+                    "
+                  >
+                    {item.name}
+                  </button>
+                ))
+              }
+
+
+            </div>
+
           </div>
-        </div>
-      )}
+
+        )
+      }
+
+
     </nav>
   );
 };
+
 
 export default Navbar;

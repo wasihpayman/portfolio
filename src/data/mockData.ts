@@ -2,117 +2,254 @@ import { Profile, SocialLink, Project, Experience, Skill } from '../types/portfo
 
 export const mockProfile: Profile = {
   id: '1',
-  name: 'Abdul Wasih Payman',
+  name: 'Abdulwasih Payman',
   title: 'Full Stack Developer',
-  bio: 'Passionate developer with +2 years of experience building scalable web applications. I love creating beautiful, functional user experiences and robust backend systems.',
+  bio: 'Full Stack Developer specializing in Laravel and React. I build scalable web applications, management systems, REST APIs, and database-driven solutions for real-world business needs.',
   image: '/portfolio/photo.jpg',
-  location: 'Mazar-e-sharif, Afghanistan',
+  location: 'Mazar-e-Sharif, Afghanistan',
   email: 'paymanwasih240@gmail.com',
   phone: '+93 798 338 570'
 };
 
+
 export const mockSocialLinks: SocialLink[] = [
-  {
-    id: '1',
-    platform: 'GitHub',
-    url: 'https://github.com/wasihpayman',
-    icon: 'Github'
-  },
-  {
-    id: '2',
-    platform: 'LinkedIn',
-    url: 'https://www.linkedin.com/in/wasih-payman-0b9b02262/',
-    icon: 'Linkedin'
-  },
-  {
-    id: '4',
-    platform: 'Email',
-    url: 'paymanwasih240@gmail.com',
-    icon: 'Mail'
-  }
+
+{
+id:'1',
+platform:'GitHub',
+url:'https://github.com/wasihpayman',
+icon:'Github'
+},
+
+{
+id:'2',
+platform:'LinkedIn',
+url:'https://www.linkedin.com/in/wasih-payman-0b9b02262/',
+icon:'Linkedin'
+},
+
+{
+id:'3',
+platform:'Email',
+url:'mailto:paymanwasih240@gmail.com',
+icon:'Mail'
+},
+
+{
+id:'4',
+platform:'WhatsApp',
+url:'https://wa.me/93798338570',
+icon:'WhatsApp'
+}
+
 ];
 
 export const mockProjects: Project[] = [
-  {
-    id: '1',
-    title: 'Inventroy management system',
-    description: 'A full-stack Inventory management system platform built with React, PHP, Laravel, and Mysql. Features include user authentication, payment processing, and admin dashboard.',
-    link: 'https://inventroy-management.com',
-    github: 'https://github.com/wasihpayman/inventroy',
-    image: 'https://images.pexels.com/photos/230544/pexels-photo-230544.jpeg?auto=compress&cs=tinysrgb&w=600',
-    technologies: ['React', 'PHP', 'Mysql', 'Laravel'],
-    featured: true
-  },
-  {
-    id: '2',
-    title: 'Task Management App',
-    description: 'A collaborative task management application with real-time updates, file sharing, and team collaboration features.',
-    link: 'https://task.com',
-    github: 'https://github.com/wasihpayman/Task-Management',
-    image: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=600',
-    technologies: ['Vue.js', 'Laravel', 'MySQL', 'Socket.io'],
-    featured: true
-  },
-  {
-    id: '3',
-    title: 'onlinebusbooking',
-    description: 'Online Bus Booking is a platform that lets users quickly search and book bus tickets online with real-time seat availability and instant confirmation.',
-    link: 'https://booking rsdf.com',
-    github: 'https://github.com/wasihpayman/onlinebusbooking',
-    image: 'https://images.pexels.com/photos/1118873/pexels-photo-1118873.jpeg?auto=compress&cs=tinysrgb&w=600',
-    technologies: ['Java script', 'PHP', 'PostgreSQL', 'Laravel'],
-    featured: false
-  }
+
+{
+ id:'1',
+ title:'Fuel Station Management System',
+ description:
+ 'A business management platform built for fuel station operations. Includes user management, fuel station management, wallet tracking, transaction records, reporting, and admin dashboard workflows.',
+ link:'',
+ github:'',
+ image:'/portfolio/projects/fuel.jpg',
+ technologies:[
+  'Laravel',
+  'React',
+  'MySQL',
+  'REST API'
+ ],
+ featured:true
+},
+
+
+{
+ id:'2',
+ title:'Construction Management System',
+ description:
+ 'A full-stack construction management platform for managing projects, clients, contractors, materials, purchases, expenses, and financial workflows.',
+ link:'',
+ github:'',
+ image:'/portfolio/projects/construction.jpg',
+ technologies:[
+  'Laravel 12',
+  'React',
+  'TypeScript',
+  'MySQL'
+ ],
+ featured:true
+},
+
+
+{
+ id:'3',
+ title:'Multi-Tenant Sarafi Management System',
+ description:
+ 'A multi-tenant exchange management system with customer wallets, transaction workflows, approval processes, ledger-based accounting concepts, role permissions, and audit logging.',
+ link:'',
+ github:'',
+ image:'/portfolio/projects/sarafi.jpg',
+ technologies:[
+  'Laravel API',
+  'Flutter',
+  'MySQL',
+  'Redis'
+ ],
+ featured:true
+},
+
+
+{
+ id:'4',
+ title:'Gold Shop Management System',
+ description:
+ 'A desktop management application for gold shop operations including inventory, sales, purchases, and accounting workflows.',
+ link:'',
+ github:'',
+ image:'/portfolio/projects/gold-shop.jpg',
+ technologies:[
+  'Laravel',
+  'React',
+  'Material UI',
+  'Electron'
+ ],
+ featured:false
+},
+
+
+{
+ id:'5',
+ title:'MRN Market - E-commerce Platform',
+ description:
+ 'An e-commerce platform with product management, customer workflows, backend APIs, database models, and administrative features.',
+ link:'',
+ github:'',
+ image:'/portfolio/projects/mrn-market.jpg',
+ technologies:[
+  'Laravel',
+  'React',
+  'MySQL'
+ ],
+ featured:false
+}
+
 ];
+
+
 
 export const mockExperiences: Experience[] = [
-  {
-    id: '1',
-    company: 'Freelancer',
-    role: 'Senior Full Stack Developer',
-    duration: '2025 - Present',
-    startDate: '2025-01-23',
-    endDate: null,
-    description: 'Full-stack developer creating web,  and desktop apps, with experience in AI, machine learning, and computer vision.',
-    technologies: ['React', 'PHP', 'laravel', 'AWS', 'postgreSQL, mysql, machine learning, AI, computer vision'],
-    current: true
-  },
-  {
-    id: '2',
-    company: 'AI ROOT',
-    role: 'resarch and developer engineer',
-    duration: '2024 - 2024',
-    startDate: '2024-012-01',
-    endDate: '2024-01-11',
-    description: 'The project was How can Deep think How can Deep learn .',
-    technologies: ['Machine Learning', 'Computer Vision', 'PHP', 'Python', 'GitLab CI'],
-    current: false
-  },
-  {
-    id: '3',
-    company: 'Paydayesh Zaman',
-    role: 'Full Stack Developer',
-    duration: '2023 - 2024',
-    startDate: '2023-12-05',
-    endDate: '2023-04-28',
-    description: 'Created responsive websites and web applications for various clients, focusing on user experience and performance.',
-    technologies: ['HTML', 'CSS', 'JavaScript', 'Laravel', 'MySQL', 'React'],
-    current: false
-  }
+
+
+{
+ id:'1',
+ company:'Freelance',
+ role:'Full Stack Developer',
+ duration:'2025 - Present',
+ startDate:'2025-01-01',
+ endDate:null,
+ description:
+ 'Developing custom web applications using Laravel, React, TypeScript, and MySQL. Building REST APIs, dashboards, business management systems, and scalable backend solutions.',
+ technologies:[
+  'Laravel',
+  'React',
+  'TypeScript',
+  'MySQL',
+  'REST API'
+ ],
+ current:true
+},
+
+
+
+{
+ id:'2',
+ company:'AISTWORKS',
+ role:'Founder & Full Stack Developer',
+ duration:'2025',
+ startDate:'2025-01-01',
+ endDate:'2025-12-31',
+ description:
+ 'Founded and managed a software development brand focused on web applications and digital solutions. Developed full-stack applications and managed development workflows.',
+ technologies:[
+  'Laravel',
+  'React',
+  'JavaScript',
+  'MySQL'
+ ],
+ current:false
+},
+
+
+
+{
+ id:'3',
+ company:'Sky Soft',
+ role:'Full Stack Developer',
+ duration:'2025',
+ startDate:'2025-01-01',
+ endDate:'2025-05-01',
+ description:
+ 'Worked as a full-time developer and continued remote collaboration. Developed Laravel applications, database structures, frontend components, and software improvements.',
+ technologies:[
+  'Laravel',
+  'PHP',
+  'JavaScript',
+  'MySQL'
+ ],
+ current:false
+},
+
+
+
+{
+ id:'4',
+ company:'PAYDA YSH ZAMAN COMPANY',
+ role:'Part-time Backend Developer',
+ duration:'2023 - 2024',
+ startDate:'2023-01-01',
+ endDate:'2024-01-01',
+ description:
+ 'Developed backend features, REST APIs, and database solutions for data-driven web applications.',
+ technologies:[
+  'PHP',
+  'Laravel',
+  'SQL',
+  'REST API'
+ ],
+ current:false
+}
+
 ];
 
+
+
 export const mockSkills: Skill[] = [
-  { id: '1', name: 'React', percentage: 95, category: 'frontend' },
-  { id: '2', name: 'TypeScript', percentage: 90, category: 'frontend' },
-  { id: '3', name: 'Vue.js', percentage: 85, category: 'frontend' },
-  { id: '4', name: 'Node.js', percentage: 90, category: 'backend' },
-  { id: '5', name: 'Laravel', percentage: 85, category: 'backend' },
-  { id: '6', name: 'PHP', percentage: 85, category: 'backend' },
-  { id: '7', name: 'PostgreSQL', percentage: 80, category: 'backend' },
-  { id: '8', name: 'MySQL', percentage: 85, category: 'backend' },
-  { id: '9', name: 'Docker', percentage: 75, category: 'tools' },
-  { id: '10', name: 'AWS', percentage: 70, category: 'tools' },
-  { id: '11', name: 'Git', percentage: 95, category: 'tools' },
-  { id: '12', name: 'Machine Learning', percentage: 70, category: 'AI' },
-  { id: '13', name: 'Computer Vision', percentage: 95, category: 'AI' }
+  // Frontend
+  { id:'1', name:'React.js', percentage:0, category:'frontend' },
+  { id:'2', name:'TypeScript', percentage:0, category:'frontend' },
+  { id:'3', name:'JavaScript', percentage:0, category:'frontend' },
+  { id:'4', name:'HTML5', percentage:0, category:'frontend' },
+  { id:'5', name:'CSS3', percentage:0, category:'frontend' },
+  { id:'6', name:'Tailwind CSS', percentage:0, category:'frontend' },
+  { id:'7', name:'Material UI', percentage:0, category:'frontend' },
+  // Backend
+  { id:'8', name:'Laravel', percentage:0, category:'backend' },
+  { id:'9', name:'PHP', percentage:0, category:'backend' },
+  { id:'10', name:'REST APIs', percentage:0, category:'backend' },
+  { id:'11', name:'Authentication', percentage:0, category:'backend' },
+  { id:'12', name:'Backend Architecture', percentage:0, category:'backend' },
+  // Database
+  { id:'13', name:'MySQL', percentage:0, category:'database' },
+  { id:'14', name:'SQLite', percentage:0, category:'database' },
+  { id:'15', name:'SQL', percentage:0, category:'database' },
+  { id:'16', name:'Database Design', percentage:0, category:'database' },
+  // Tools
+  { id:'17', name:'Git', percentage:0, category:'tools' },
+  { id:'18', name:'GitHub', percentage:0, category:'tools' },
+  { id:'19', name:'Docker', percentage:0, category:'tools' },
+  { id:'20', name:'Linux', percentage:0, category:'tools' },
+  { id:'21', name:'CI/CD', percentage:0, category:'tools' },
+  { id:'22', name:'Electron', percentage:0, category:'tools' },
+  { id:'23', name:'Flutter', percentage:0, category:'tools' }
 ];

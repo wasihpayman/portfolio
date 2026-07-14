@@ -1,87 +1,296 @@
 import React from 'react';
-import { Github, Linkedin, Twitter, Mail, Heart } from 'lucide-react';
+import {
+  Github,
+  Linkedin,
+  Mail,
+  MessageCircle
+} from 'lucide-react';
+
 import { SocialLink } from '../types/portfolio';
 
+
 interface FooterProps {
-  socialLinks: SocialLink[];
+ socialLinks: SocialLink[];
 }
 
-const Footer: React.FC<FooterProps> = ({ socialLinks }) => {
-  const getIcon = (iconName: string) => {
-    const icons: Record<string, React.ReactNode> = {
-      Github: <Github size={20} />,
-      Linkedin: <Linkedin size={20} />,
-      Twitter: <Twitter size={20} />,
-      Mail: <Mail size={20} />
-    };
-    return icons[iconName] || <Mail size={20} />;
-  };
 
-  return (
-    <footer className="bg-gray-900/50 border-t border-purple-500/20 py-12">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="grid md:grid-cols-3 gap-8 mb-8">
-          {/* Brand */}
-          <div className="space-y-4">
-            <h3 className="text-2xl font-bold bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent">
-              Abdul Wasih Payman
-            </h3>
-            <p className="text-gray-400">
-              Full Stack Developer passionate about creating beautiful, functional web applications.
-            </p>
-          </div>
+const Footer:React.FC<FooterProps> = ({
+ socialLinks
+}) => {
 
-          {/* Quick Links */}
-          <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-white">Quick Links</h4>
-            <div className="space-y-2">
-              {['Home', 'About', 'Skills', 'Experience', 'Projects', 'Contact'].map((item) => (
-                <button
-                  key={item}
-                  onClick={() => {
-                    const element = document.querySelector(`#${item.toLowerCase()}`);
-                    if (element) element.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                  className="block text-gray-400 hover:text-purple-400 transition-colors duration-200"
-                >
-                  {item}
-                </button>
-              ))}
-            </div>
-          </div>
 
-          {/* Social Links */}
-          <div className="space-y-4">
-            <h4 className="text-lg font-semibold text-white">Connect</h4>
-            <div className="flex space-x-4">
-              {socialLinks.map((social) => (
-                <a
-                  key={social.id}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-purple-600/20 rounded-full flex items-center justify-center text-purple-400 hover:bg-purple-600/30 transition-all duration-300 hover:scale-110"
-                >
-                  {getIcon(social.icon)}
-                </a>
-              ))}
-            </div>
-          </div>
-        </div>
 
-        <div className="border-t border-gray-700 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-gray-400 text-center md:text-left">
-              © {new Date().getFullYear()} Abdul Wasih Payman. All rights reserved.
-            </p>
-            <p className="text-gray-400 text-center md:text-right mt-4 md:mt-0 flex items-center">
-              Made with <Heart size={16} className="mx-2 text-red-500" fill="currentColor" /> and React
-            </p>
-          </div>
-        </div>
-      </div>
-    </footer>
-  );
+const getIcon=(icon:string)=>{
+
+const icons:any={
+
+ Github:<Github size={20}/>,
+ Linkedin:<Linkedin size={20}/>,
+ Mail:<Mail size={20}/>,
+ WhatsApp:<MessageCircle size={20}/>
+
 };
+
+
+return icons[icon] || <Mail size={20}/>;
+
+
+};
+
+
+
+
+
+return (
+
+<footer
+className="
+border-t
+border-white/10
+bg-[#020617]
+py-12
+"
+>
+
+
+<div
+className="
+max-w-6xl
+mx-auto
+px-6
+"
+>
+
+
+<div
+className="
+grid
+md:grid-cols-3
+gap-10
+"
+>
+
+
+{/* Brand */}
+
+<div>
+
+<h3
+className="
+text-xl
+font-bold
+text-white
+mb-4
+"
+>
+Abdulwasih Payman
+</h3>
+
+
+<p
+className="
+text-gray-400
+leading-relaxed
+"
+>
+Full Stack Developer specializing in Laravel,
+React, REST APIs and scalable business applications.
+</p>
+
+
+</div>
+
+
+
+
+
+
+{/* Navigation */}
+
+<div>
+
+
+<h4
+className="
+text-white
+font-semibold
+mb-4
+"
+>
+Navigation
+</h4>
+
+
+<div
+className="
+space-y-2
+"
+>
+
+
+{
+[
+"Home",
+"About",
+"Skills",
+"Experience",
+"Projects",
+"Contact"
+].map(item=>(
+
+
+<button
+
+key={item}
+
+onClick={()=>{
+
+const el=document.querySelector(
+`#${item.toLowerCase()}`
+);
+
+el?.scrollIntoView({
+behavior:'smooth'
+});
+
+}}
+
+className="
+block
+text-gray-400
+hover:text-blue-400
+transition
+"
+>
+
+{item}
+
+</button>
+
+
+))
+}
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+{/* Contact */}
+
+<div>
+
+
+<h4
+className="
+text-white
+font-semibold
+mb-4
+"
+>
+Connect
+</h4>
+
+
+<div
+className="
+flex
+gap-3
+"
+>
+
+
+{
+socialLinks.map(link=>(
+
+
+<a
+
+key={link.id}
+
+href={link.url}
+
+target="_blank"
+
+rel="noopener noreferrer"
+
+className="
+w-10
+h-10
+flex
+items-center
+justify-center
+rounded-lg
+bg-white/5
+border
+border-white/10
+text-gray-400
+hover:text-white
+hover:border-blue-400
+transition
+"
+
+>
+
+{
+getIcon(link.icon)
+}
+
+
+</a>
+
+
+))
+}
+
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+<div
+className="
+mt-10
+pt-6
+border-t
+border-white/10
+text-center
+text-gray-500
+text-sm
+"
+>
+
+© {new Date().getFullYear()} Abdulwasih Payman. All rights reserved.
+
+</div>
+
+
+
+
+</div>
+
+
+</footer>
+
+);
+
+};
+
 
 export default Footer;
