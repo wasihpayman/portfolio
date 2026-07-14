@@ -53,7 +53,7 @@ export const mockProjects: Project[] = [
  'A business management platform built for fuel station operations. Includes user management, fuel station management, wallet tracking, transaction records, reporting, and admin dashboard workflows.',
  link:'',
  github:'',
- image:'/portfolio/projects/fuel.jpg',
+ image:'src/portfolio/fuel.png',
  technologies:[
   'Laravel',
   'React',
@@ -71,7 +71,7 @@ export const mockProjects: Project[] = [
  'A full-stack construction management platform for managing projects, clients, contractors, materials, purchases, expenses, and financial workflows.',
  link:'',
  github:'',
- image:'/portfolio/projects/construction.jpg',
+ image:'src/portfolio/constraction (1).png',
  technologies:[
   'Laravel 12',
   'React',
@@ -89,7 +89,7 @@ export const mockProjects: Project[] = [
  'A multi-tenant exchange management system with customer wallets, transaction workflows, approval processes, ledger-based accounting concepts, role permissions, and audit logging.',
  link:'',
  github:'',
- image:'/portfolio/projects/sarafi.jpg',
+ image:'src/portfolio/gigs.png',
  technologies:[
   'Laravel API',
   'Flutter',
@@ -107,7 +107,7 @@ export const mockProjects: Project[] = [
  'A desktop management application for gold shop operations including inventory, sales, purchases, and accounting workflows.',
  link:'',
  github:'',
- image:'/portfolio/projects/gold-shop.jpg',
+ image:'src/portfolio/main.png',
  technologies:[
   'Laravel',
   'React',
@@ -125,7 +125,7 @@ export const mockProjects: Project[] = [
  'An e-commerce platform with product management, customer workflows, backend APIs, database models, and administrative features.',
  link:'',
  github:'',
- image:'/portfolio/projects/mrn-market.jpg',
+ image:'src/portfolio/persona.png',
  technologies:[
   'Laravel',
   'React',
