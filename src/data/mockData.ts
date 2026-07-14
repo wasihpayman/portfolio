@@ -1,4 +1,9 @@
 import { Profile, SocialLink, Project, Experience, Skill } from '../types/portfolio';
+import fuelImage from '../portfolio/fuel.png';
+import constructionImage from '../portfolio/constraction (1).png';
+import sarafiImage from '../portfolio/gigs.png';
+import goldImage from '../portfolio/main.png';
+import mrnImage from '../portfolio/persona.png';
 
 export const mockProfile: Profile = {
   id: '1',
@@ -53,7 +58,7 @@ export const mockProjects: Project[] = [
  'A business management platform built for fuel station operations. Includes user management, fuel station management, wallet tracking, transaction records, reporting, and admin dashboard workflows.',
  link:'',
  github:'',
- image:'src/portfolio/fuel.png',
+ image:fuelImage,
  technologies:[
   'Laravel',
   'React',
@@ -71,7 +76,7 @@ export const mockProjects: Project[] = [
  'A full-stack construction management platform for managing projects, clients, contractors, materials, purchases, expenses, and financial workflows.',
  link:'',
  github:'',
- image:'src/portfolio/constraction (1).png',
+ image:constructionImage,
  technologies:[
   'Laravel 12',
   'React',
@@ -89,7 +94,7 @@ export const mockProjects: Project[] = [
  'A multi-tenant exchange management system with customer wallets, transaction workflows, approval processes, ledger-based accounting concepts, role permissions, and audit logging.',
  link:'',
  github:'',
- image:'src/portfolio/gigs.png',
+ image:sarafiImage,
  technologies:[
   'Laravel API',
   'Flutter',
@@ -107,7 +112,7 @@ export const mockProjects: Project[] = [
  'A desktop management application for gold shop operations including inventory, sales, purchases, and accounting workflows.',
  link:'',
  github:'',
- image:'src/portfolio/main.png',
+ image:goldImage,
  technologies:[
   'Laravel',
   'React',
@@ -125,7 +130,7 @@ export const mockProjects: Project[] = [
  'An e-commerce platform with product management, customer workflows, backend APIs, database models, and administrative features.',
  link:'',
  github:'',
- image:'src/portfolio/persona.png',
+ image:mrnImage,
  technologies:[
   'Laravel',
   'React',

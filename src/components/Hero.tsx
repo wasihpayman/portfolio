@@ -253,7 +253,7 @@ View Projects
 
 
 <a
-href="/Payman_cv.pdf"
+href="Abdulwasih Payman cv.pdf"
 download
 className="
 px-6
